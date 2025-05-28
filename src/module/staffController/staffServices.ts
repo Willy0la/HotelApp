@@ -1,5 +1,3 @@
-import mongoose from "mongoose";
-
 import HotelModel from "../../model/userModel";
 
 import STATUS from "../../constant/constant";
@@ -52,6 +50,21 @@ export const createHotelUserService = async (
 //getUserbyId
 
 export const getUserByRoomTypeService = async (hotelNumber: number) => {
-  const user = await HotelModel.findOne({ "roomDetail.hotelNumber": hotelNumber });
+  const user = await HotelModel.findOne({
+    "roomDetail.hotelNumber": hotelNumber,
+  });
+  return user;
+};
+
+export const updateUserByRoomTypeService = async (
+  hotelNumber: number,
+  updateData: object
+) => {
+  const user = await HotelModel.findOneAndUpdate(
+    { "roomDetail.hotelNumber": hotelNumber },
+    updateData,
+    { new: true }
+  );
+
   return user;
 };
