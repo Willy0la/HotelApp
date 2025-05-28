@@ -1,0 +1,18 @@
+.env
+node_modules/
+# Ignore logs
+logs
+*.log
+
+# Ignore system-specific files
+.DS_Store
+
+# Ignore compiled output
+dist/
+build/
+
+# Ignore TypeScript build files
+*.tsbuildinfo
+*.json
+!package.json
+!tsconfig.json
